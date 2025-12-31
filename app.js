@@ -1,7 +1,12 @@
 const http = require('http');
 
 http.createServer((req, res) => {
-  res.end("CI/CD Auto deployment works Successfully 🚀");
+  // Disable caching
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
+  res.end("CI/CD Auto deployment Successfully 🚀");
 }).listen(3000, '0.0.0.0', () => {
   console.log("Server running on port 3000");
 });
